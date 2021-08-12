@@ -144,7 +144,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($client->sales as $sale)
+                                                        @forelse ($client->sales as $sale)
                                                         <tr>
                                                             <th scope="row">
                                                                 <a href="{{route('sales.show', $sale)}}">{{$sale->id}}</a>
@@ -173,8 +173,10 @@
                                                            
                                                               
                                                             </td>
+                                                            @empty
+                                                                <p>No ventas</p>
                                                         </tr>
-                                                        @endforeach
+                                                        @endforelse
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
@@ -226,9 +228,9 @@
                                                           
                                                             <!-- <td style="width: 50px;">
                         
-                                                                <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
+                                                                <a href="route('sales.pdf', $sale)" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
                                                                 {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
-                                                                <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
+                                                                <a href="route('sales.show', $sale)" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
                                                            
                                                               
                                                             </td> -->
