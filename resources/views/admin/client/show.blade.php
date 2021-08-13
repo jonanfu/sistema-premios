@@ -168,20 +168,23 @@
                                                             <td style="width: 50px;">
                         
                                                                 <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-                                                                {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
+                                                               
                                                                 <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
                                                            
                                                               
                                                             </td>
                                                             @empty
-                                                                <p>No ventas</p>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th></th>
                                                         </tr>
                                                         @endforelse
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                          <td colspan="2"><strong>Total de monto comprado: </strong></td>
-                                                          <td colspan="3" align="left"><strong>s/{{$total_purchases}}</strong></td>
+                                                          <td colspan="2"><strong>Total de puntos: </strong></td>
+                                                          <td colspan="3" align="left"><strong>{{$total_purchases}}</strong></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -211,7 +214,7 @@
                                                             <th>Nombre</th>
                                                             <th>Cedula</th>
                                                             <th>Correo</th>
-                                                            <!-- <th style="width:50px;">Acciones</th> -->
+                                                           
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -226,14 +229,7 @@
                                                                 {{$referred->email}}
                                                             </td>
                                                           
-                                                            <!-- <td style="width: 50px;">
-                        
-                                                                <a href="route('sales.pdf', $sale)" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-                                                                {{--  <a href="#" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>  --}}
-                                                                <a href="route('sales.show', $sale)" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
                                                            
-                                                              
-                                                            </td> -->
                                                         </tr>
                                                         @empty
                                                             <p>No users</p>

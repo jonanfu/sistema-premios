@@ -10,6 +10,9 @@ use App\Models\Provider;
 use App\Models\Product;
 use App\Models\PurchaseDetail;
 
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class Purchase extends Model
 {

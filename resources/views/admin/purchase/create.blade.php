@@ -114,8 +114,10 @@
     }
     
     function totales() {
-        $("#total").html("PEN " + total.toFixed(2));
-       }
+        $("#total_pagar_html").html(total);
+        $("#total").html(total.toFixed(2));
+        $("#total_pagar").val(total);
+    }
     
     function evaluar() {
         if (total > 0) {
@@ -126,8 +128,8 @@
     }
     
     function eliminar(index) {
-        total = total - subtotal[index];
-        $("#total").html("PEN" + total);
+        total = total;
+        $("#total").html(total);
         $("#fila" + index).remove();
         evaluar();
     }

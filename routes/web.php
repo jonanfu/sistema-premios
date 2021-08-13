@@ -13,6 +13,7 @@ use App\http\Controllers\HomeController;
 use App\http\Controllers\BusinessController;
 use App\http\Controllers\UserController;
 use App\http\Controllers\RoleController;
+use App\http\Controllers\PremiosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,3 +74,5 @@ Route::get('/prueba', function () {
 Auth::routes();
 Auth::routes(['register' => false]);
 Route::get('/home', [HomeController::class,'index'])->name('home');
+
+Route::get('/premios', [PremiosController::class, 'index'])->name('premios');
