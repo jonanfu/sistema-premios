@@ -76,3 +76,4 @@ Auth::routes(['register' => false]);
 Route::get('/home', [HomeController::class,'index'])->name('home');
 
 Route::get('/premios', [PremiosController::class, 'index'])->name('premios');
+Route::post('/consulta_puntos', [PremiosController::class, 'consultarPuntos'])->name('consulta_puntos');

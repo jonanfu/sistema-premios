@@ -77,8 +77,8 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        //$providers = Provider::get();
-        //return view('admin.purchase.edit', compact('purchase'));
+        $providers = Provider::get();
+        return view('admin.purchase.edit', compact('purchase'));
     }
 
     /**
@@ -90,8 +90,8 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, Purchase $purchase)
     {
-        //$purchase->update($request->all);
-        //return redirect()->route('purchase.index');
+        $purchase->update($request->all);
+        return redirect()->route('purchase.index');
     }
 
     /**
@@ -102,8 +102,8 @@ class PurchaseController extends Controller
      */
     public function destroy(Purchase $purchase)
     {
-        //$purchase->delete();
-        //return redirect()->route('purchases.index');
+        $purchase->delete();
+        return redirect()->route('purchases.index');
     }
 
     public function pdf(Purchase $purchase)

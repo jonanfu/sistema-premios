@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('picture')){
+        if($request->file('picture') != null){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/image"),$image_name);
@@ -91,7 +91,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        if($request->hashFile('picture')){
+        if($request->file('picture') != null){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/image"), $image_name);

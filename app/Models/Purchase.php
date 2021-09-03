@@ -37,7 +37,8 @@ class Purchase extends Model
     {
         $purchase = Purchase::create($request->all() + [
             'user_id' => Auth::user()->id,
-            'purchase_date' => Carbon::now('America/Guayaquil')
+            'purchase_date' => Carbon::now('America/Guayaquil'),
+            'total' => 0
         ]);
 
         $purchase->add_purchase_details($request);

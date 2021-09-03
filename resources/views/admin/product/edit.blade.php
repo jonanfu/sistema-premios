@@ -39,7 +39,7 @@
 
                     <div class="form-group">
                         <label for="sell_price">Puntos</label>
-                        <input type="number" name="sell_price" id="sell_price" value="{{$product->sell_price}}" class="form-control" aria-describedby="helpId" required>
+                        <input type="number" name="sell_points" id="sell_points" value="{{$product->sell_points}}" class="form-control" aria-describedby="helpId" required>
                     </div>
                     <div class="form-group">
                       <label for="category_id">Categoría</label>
