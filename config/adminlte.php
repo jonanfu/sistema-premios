@@ -241,12 +241,12 @@ return [
         ['header' => 'Menu'],
         [
             'text' => 'Dashboard',
-            'url'  => 'admin/settings',
+            'url'  => '/admin',
             'icon' => 'fas fa-home',
         ],
         [
             'text' => 'Compras',
-            'route'  => 'hola',
+            'url'  => 'purchases',
             'icon' => 'fas fa-cart-arrow-down',
         ],
         [

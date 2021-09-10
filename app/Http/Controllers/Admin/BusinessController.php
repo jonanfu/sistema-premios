@@ -10,7 +10,7 @@ class BusinessController extends Controller
 {
     public function __contruct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class BusinessController extends Controller
     public function index()
     {
         $business = Business::where('id', 1)->firstOrFail();
-        return view('admin.business.index', compact('business'));
+        return view('adminlte.business.index', compact('business'));
     }
 
     /**

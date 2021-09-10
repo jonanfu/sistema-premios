@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\Admin\HomeController;
+use App\http\Controllers\Admin\BusinessController;
+use App\http\Controllers\Admin\Purchase;
 
-Route::get('', [HomeController::class, 'index']);
+Route::get('', [HomeController::class, 'index'])->name('home');
 Route::get('/hola', function () {
     return "hola";
 })->name('hola');
