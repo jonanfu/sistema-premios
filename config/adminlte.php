@@ -246,37 +246,37 @@ return [
         ],
         [
             'text' => 'Compras',
-            'url'  => 'purchases',
+            'route'  => 'admin/purchases',
             'icon' => 'fas fa-cart-arrow-down',
         ],
         [
             'text' => 'Ventas',
-            'url'  => 'sales',
+            'route'  => 'sales',
             'icon' => 'fas fa-shopping-cart',
         ],
         [
             'text' => 'Categorias',
-            'url'  => 'categories',
+            'route'  => 'categories',
             'icon' => 'fas fa-tags',
         ],
         [
             'text' => 'Productos',
-            'url'  => 'products',
+            'route'  => 'products',
             'icon' => 'fas fa-boxes',
         ],
         [
             'text' => 'Clientes',
-            'url'  => 'clients',
+            'route'  => 'clients',
             'icon' => 'fas fa-users',
         ],
         [
             'text' => 'Proveedores',
-            'url'  => 'providers',
+            'route'  => 'providers',
             'icon' => 'fas fa-truck-moving',
         ],
         [
             'text' => 'Usuarios',
-            'url'  => 'users',
+            'route'  => 'users',
             'icon' => 'fas fa-user',
         ],
         [

@@ -1,17 +1,11 @@
-@extends('layouts.admin')
-@section('title','información del proveedor')
-@section('styles')
+@extends('adminlte::page')
 
-@endsection
-@section('create')
+@section('title', 'Informacion del proveedor')
 
-@endsection
-@section('options')
+@section('content_header')
+<h1>Dashboard</h1>
+@stop
 
-@endsection
-@section('preference')
-
-@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="page-header">
@@ -104,8 +98,13 @@
     </div>
 
 </div>
-@endsection
-@section('scripts')
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
 {!! Html::script('melody/js/profile-demo.js') !!}
 {!! Html::script('melody/js/data-table.js') !!}
-@endsection
+@stop
