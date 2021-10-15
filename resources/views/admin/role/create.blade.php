@@ -1,66 +1,199 @@
-@extends('layouts.admin')
-@section('title','Registro de rol')
-@section('styles')
-@endsection
-@section('options')
-@endsection
-@section('preference')
-@endsection
+@extends('adminlte::page')
+
+@section('title', 'Registro de venta')
+
+@section('content_header')
+<h1> Registro de venta
+</h1>
+@stop
+
 @section('content')
-<div class="content-wrapper">
-    <div class="page-header">
-        <h3 class="page-title">
-            Registro de rol
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{route('roles.index')}}">Roles</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Registro de rol</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    
-                    <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Registro de rol</h4>
-                    </div>
-                    {!! Form::open(['route'=>'roles.store', 'method'=>'POST']) !!}
+<div class="page-header">
 
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text"
-                          class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="">
-                      </div>
-                      <div class="form-group">
-                          <label for="slug">Slug</label>
-                          <input type="text"
-                            class="form-control" name="slug" id="slug" aria-describedby="helpId" placeholder="">
-                        </div>
-                      <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
-                      </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
+            <li class="breadcrumb-item"><a href="{{route('sales.index')}}">Ventas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Registro de venta</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            {!! Form::open(['route'=>'sales.store', 'method'=>'POST']) !!}
+            <div class="card-body">
 
-
-                    @include('admin.role._form')
-                     <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                     <a href="{{route('roles.index')}}" class="btn btn-light">
-                        Cancelar
-                     </a>
-                     {!! Form::close() !!}
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title">Registro de venta</h4>
                 </div>
-                {{--  <div class="card-footer text-muted">
-                    {{$roles->render()}}
-                </div>  --}}
+
+                @include('admin.sale._form')
+
+
             </div>
+            <div class="card-footer text-muted">
+                <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
+                <a href="{{route('sales.index')}}" class="btn btn-light">
+                    Cancelar
+                </a>
+            </div>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-{!! Html::script('melody/js/data-table.js') !!}
-@endsection
+</div>
+
+
+<div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Registro rápido de cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            {!! Form::open(['route'=>'clients.store', 'method'=>'POST','files' => true]) !!}
+
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required>
+                </div>
+                <div class="form-group">
+                    <label for="cedula">CEDULA</label>
+                    <input type="number" class="form-control" name="cedula" id="cedula" aria-describedby="helpId"
+                        required>
+                </div>
+
+                <input type="hidden" name="sale" value="1">
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Registrar</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+    </div>
+
+    @stop
+
+    @section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
+    @stop
+
+    @section('js')
+
+    $(document).ready(function () {
+    $("#agregar").click(function () {
+    agregar();
+    });
+    });
+
+    var cont = 1;
+    total = 0;
+    subtotal = [];
+    $("#guardar").hide();
+
+    $("#product_id").change(mostrarValores);
+    function mostrarValores() {
+    datosProducto = document.getElementById('product_id').value.split('_');
+    $("#price").val(datosProducto[2]);
+    $("#stock").val(datosProducto[1]);
+    }
+
+    var product_id = $('#product_id');
+
+    product_id.change(function(){
+    $.ajax({
+    url: "{{route('get_products_by_id')}}",
+    method: 'GET',
+    data:{
+    product_id: product_id.val(),
+    },
+    success: function(data){
+    $("#price").val(data.sell_points);
+    $("#stock").val(data.stock);
+    }
+    });
+    });
+
+
+    function agregar() {
+    datosProducto = document.getElementById('product_id').value.split('_');
+
+    product_id = datosProducto[0];
+    producto = $("#product_id option:selected").text();
+    quantity = $("#quantity").val();
+    price = $("#price").val();
+    stock = $("#stock").val();
+    if (product_id != "" && quantity != "" && quantity > 0 && price != "") {
+    if (parseInt(stock) >= parseInt(quantity)) {
+    subtotal[cont] = quantity * price;
+    total = total + subtotal[cont];
+    var fila = '<tr class="selected" id="fila' + cont + '">
+        <td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar(' + cont + ');"><i
+                    class="fa fa-times fa-2x"></i></button></td>
+        <td><input type="hidden" name="product_id[]" value="' + product_id + '">' + producto + '</td>
+        <td> <input type="hidden" name="price[]" value="' + parseFloat(price).toFixed(2) + '"> <input
+                class="form-control" type="number" value="' + parseFloat(price).toFixed(2) + '" disabled> </td>
+        <td> <input type="hidden" name="quantity[]" value="' + quantity + '"> <input type="number"
+                value="' + quantity + '" class="form-control" disabled> </td>
+        <td align="right">s/' + parseFloat(subtotal[cont]).toFixed(2) + '</td>
+    </tr>';
+    cont++;
+    limpiar();
+    totales();
+    evaluar();
+    $('#detalles').append(fila);
+    } else {
+    Swal.fire({
+    type: 'error',
+    text: 'La cantidad a vender supera el stock.',
+    })
+    }
+    } else {
+    Swal.fire({
+    type: 'error',
+    text: 'Rellene todos los campos del detalle de la venta.',
+    })
+    }
+    }
+    function limpiar() {
+    $("#quantity").val("");
+    $("#discount").val("0");
+    }
+    function totales() {
+    $("#total_pagar_html").html(total);
+    $("#total").html(total.toFixed(2));
+    $("#total_pagar").val(total);
+
+    }
+
+    function evaluar() {
+    if (total > 0) {
+    $("#guardar").show();
+    } else {
+    $("#guardar").hide();
+    }
+    }
+    function eliminar(index) {
+    total = total - subtotal[index];
+    $("#total").html(total);
+    $("#fila" + index).remove();
+    evaluar();
+    }
+
+    </script>
+
+    @stop

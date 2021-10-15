@@ -1,4 +1,3 @@
-
 <div class="form-group">
     <label for="client_id">Cliente</label>
     <select class="form-control" name="client_id" id="client_id">

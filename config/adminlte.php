@@ -241,52 +241,52 @@ return [
         ['header' => 'Menu'],
         [
             'text' => 'Dashboard',
-            'url'  => '/admin',
+            'url'  => '/',
             'icon' => 'fas fa-home',
         ],
         [
             'text' => 'Compras',
-            'route'  => 'admin/purchases',
+            'url'  => '/purchases',
             'icon' => 'fas fa-cart-arrow-down',
         ],
         [
             'text' => 'Ventas',
-            'route'  => 'sales',
+            'url'  => '/sales',
             'icon' => 'fas fa-shopping-cart',
         ],
         [
             'text' => 'Categorias',
-            'route'  => 'categories',
+            'url'  => '/categories',
             'icon' => 'fas fa-tags',
         ],
         [
             'text' => 'Productos',
-            'route'  => 'products',
+            'url'  => '/products',
             'icon' => 'fas fa-boxes',
         ],
         [
             'text' => 'Clientes',
-            'route'  => 'clients',
+            'url'  => '/clients',
             'icon' => 'fas fa-users',
         ],
         [
             'text' => 'Proveedores',
-            'route'  => 'providers',
+            'url'  => '/providers',
             'icon' => 'fas fa-truck-moving',
         ],
         [
             'text' => 'Usuarios',
-            'route'  => 'users',
+            'url'  => '/user',
             'icon' => 'fas fa-user',
         ],
         [
             'text' => 'Roles',
-            'url'  => 'roles',
+            'url'  => '/roles',
             'icon' => 'fas fa-user-tag',
         ],
         [
             'text' => 'Configuracion',
-            'url'  => 'business',
+            'url'  => '/bussines',
             'icon' => 'fas fa-cog',
         ],
 

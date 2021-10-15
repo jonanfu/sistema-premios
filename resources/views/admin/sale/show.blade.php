@@ -1,17 +1,11 @@
-@extends('layouts.admin')
-@section('title','Detalles de venta')
-@section('styles')
+@extends('adminlte::page')
 
-@endsection
-@section('create')
+@section('title', 'Detalle de venta')
 
-@endsection
-@section('options')
+@section('content_header')
+<h1>Dashboard</h1>
+@stop
 
-@endsection
-@section('preference')
-
-@endsection
 @section('content')
 <div class="content-wrapper">
     <div class="page-header">
@@ -59,8 +53,8 @@
                                 </thead>
                                 <tfoot>
 
-                                    
-                                 
+
+
                                     <tr>
                                         <th colspan="4">
                                             <p align="right">TOTAL:</p>
@@ -93,8 +87,18 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-{!! Html::script('melody/js/profile-demo.js') !!}
-{!! Html::script('melody/js/data-table.js') !!}
-@endsection
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+<script>
+{
+    !!Html::script('melody/js/profile-demo.js') !!
+} {
+    !!Html::script('melody/js/data-table.js') !!
+}
+</script>
+@stop

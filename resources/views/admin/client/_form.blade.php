@@ -31,7 +31,7 @@
             <!-- <small id="helpId" class="form-text text-muted">Este campo es opcional.</small> -->
         </div>
     </div>
-    
+
 </div>
 <div class="form-row">
     <div class="form-group col-md-4">
@@ -40,7 +40,7 @@
             <input type="text" class="form-control" name="cedula" id="cedula" aria-describedby="helpId" required>
         </div>
     </div>
-   
+
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="phone">Teléfono \ Celular</label>
@@ -58,18 +58,18 @@
 <div class="form-row">
     <div class="form-group col-md-4">
 
-        
+
         <div class="form-group">
             <label for="cedula">Selecionar cliente</label>
             <select name="referido" id="referido" class="selectpicker" data-live-search="true">
                 @foreach($clients as $client)
-                    <option  value="{{$client->id}}">{{ $client->full_name}}</option>
+                <option value="{{$client->id}}">{{ $client->full_name}}</option>
                 @endforeach
             </select>
             <!-- <input type="text" class="form-control" name="cedula" id="cedula" aria-describedby="helpId" required> -->
         </div>
     </div>
-   
+
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="points">Puntos</label>

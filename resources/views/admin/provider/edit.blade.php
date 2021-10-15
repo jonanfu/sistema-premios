@@ -1,17 +1,16 @@
-@extends('layouts.admin')
-@section('title','Editar proveedor')
-@section('styles')
-@endsection
-@section('options')
-@endsection
-@section('preference')
-@endsection
+@extends('adminlte::page')
+
+@section('title', 'Editar proveedor')
+
+@section('content_header')
+<h1>            Edición de proveedores
+</h1>
+@stop
+
 @section('content')
 <div class="content-wrapper">
     <div class="page-header">
-        <h3 class="page-title">
-            Edición de proveedores
-        </h3>
+       
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
@@ -68,8 +67,12 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
-@section('scripts')
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
 {!! Html::script('melody/js/data-table.js') !!}
-@endsection
+@stop

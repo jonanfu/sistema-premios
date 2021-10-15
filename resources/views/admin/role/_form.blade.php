@@ -1,4 +1,3 @@
-
 <h3>Permisos especiales</h3>
 <div class="form-group">
     <label>{!! Form::radio('special', 'all-access') !!} Acceso total</label>
